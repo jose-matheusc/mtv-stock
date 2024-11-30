@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com</groupId>
-	<artifactId>mtvStock</artifactId>
+	<artifactId>mtv-stock</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>mtvStock</name>
-	<description>O sistema de controle de estoque será uma aplicação em JAVA.</description>
+	<name>mtv-stock</name>
+	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
 		<license/>
