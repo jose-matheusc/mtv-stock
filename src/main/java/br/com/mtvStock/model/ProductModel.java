@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Entity
 @Table(name = "product")
@@ -21,8 +22,7 @@ public class ProductModel {
 
 
     /**
-     * Column code product:
-     * private String sku;
+     * Column code product
      */
     @Column(name = "sku", unique = true, nullable = false)
     private String sku;
@@ -44,4 +44,17 @@ public class ProductModel {
 
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ProductModel model = (ProductModel) o;
+        return Double.compare(price, model.price) == 0 && quantity == model.quantity && Objects.equals(id, model.id) && Objects.equals(name, model.name) && Objects.equals(sku, model.sku) && Objects.equals(description, model.description) && Objects.equals(category, model.category) && Objects.equals(createdAt, model.createdAt) && Objects.equals(updatedAt, model.updatedAt);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, sku, description, price, quantity, category, createdAt, updatedAt);
+    }
 }
