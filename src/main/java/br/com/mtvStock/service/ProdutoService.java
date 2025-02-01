@@ -15,11 +15,18 @@ public class ProdutoService {
 
     private final ProductRepository productRepository;
 
-    public void createProduct(@NonNull ProdutoDto produtoDto) {
+    public void criarProduto(@NonNull ProdutoDto produtoDto) {
 
         ProdutoModel produtoModel = criarProdutoModel(produtoDto);
 
         salvar(produtoModel);
+
+    }
+
+
+    public void excluirProduto(Long produtoId){
+
+        excluirPeloId(produtoId);
 
     }
 
@@ -33,6 +40,11 @@ public class ProdutoService {
         produtoModel.setCategoria(produtoDto.getCategoria());
         produtoModel.setCriadoEm(LocalDateTime.now());
         return produtoModel;
+    }
+
+    public void excluirPeloId(Long produtoId){
+        productRepository.deleteById(produtoId);
+
     }
 
     public void salvar(ProdutoModel produtoModel){
