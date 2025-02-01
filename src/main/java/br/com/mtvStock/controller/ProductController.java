@@ -1,7 +1,7 @@
 package br.com.mtvStock.controller;
 
-import br.com.mtvStock.dto.ProductDto;
-import br.com.mtvStock.service.ProductService;
+import br.com.mtvStock.dto.ProdutoDto;
+import br.com.mtvStock.service.ProdutoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class ProductController {
 
-    private final ProductService productService;
+    private final ProdutoService produtoService;
 
     @PostMapping("/create")
-    public ResponseEntity<Object> createProduct(@RequestBody ProductDto productDto) {
+    public ResponseEntity<Object> createProduct(@RequestBody ProdutoDto produtoDto) {
 
-        productService.createProduct(productDto);
+        produtoService.createProduct(produtoDto);
         return ResponseEntity.status(201).body("Product created");
 
     }

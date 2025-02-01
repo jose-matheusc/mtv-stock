@@ -11,9 +11,9 @@ public class CategoriaModel {
 
     private Long id;
 
-    @Column(name = "product")
+    @Column(name = "produto")
     @OneToMany
-    private ProductModel productModel;
+    private ProdutoModel produtoModel;
 
     private String nome;
 }
