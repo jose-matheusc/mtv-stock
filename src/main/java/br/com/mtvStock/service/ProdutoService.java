@@ -2,7 +2,7 @@ package br.com.mtvStock.service;
 
 import br.com.mtvStock.dto.ProdutoDto;
 import br.com.mtvStock.model.ProdutoModel;
-import br.com.mtvStock.repository.ProductRepository;
+import br.com.mtvStock.repository.ProdutoRepository;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @RequiredArgsConstructor
 public class ProdutoService {
 
-    private final ProductRepository productRepository;
+    private final ProdutoRepository produtoRepository;
 
     public void criarProduto(@NonNull ProdutoDto produtoDto) {
 
@@ -43,11 +43,11 @@ public class ProdutoService {
     }
 
     public void excluirPeloId(Long produtoId){
-        productRepository.deleteById(produtoId);
+        produtoRepository.deleteById(produtoId);
 
     }
 
     public void salvar(ProdutoModel produtoModel){
-        productRepository.save(produtoModel);
+        produtoRepository.save(produtoModel);
     }
 }

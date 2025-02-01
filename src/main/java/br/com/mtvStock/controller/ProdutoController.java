@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/product/v1") // Define o prefixo para os endpoints
 @RequiredArgsConstructor
-public class ProductController {
+public class ProdutoController {
 
     private final ProdutoService produtoService;
 
