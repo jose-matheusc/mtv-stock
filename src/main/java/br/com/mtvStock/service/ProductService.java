@@ -30,7 +30,7 @@ public class ProductService {
         productModel.setDescricao(productDto.getDescription());
         productModel.setPreco(productDto.getPrice());
         productModel.setQuantidade(productDto.getQuantity());
-        productModel.setCategoria(productDto.getCategory());
+        productModel.setCategoriaModel(productDto.getCategory());
         productModel.setCriadoEm(LocalDateTime.now());
         return productModel;
     }

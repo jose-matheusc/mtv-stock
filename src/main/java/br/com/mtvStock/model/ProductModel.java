@@ -1,16 +1,17 @@
 package br.com.mtvStock.model;
 
 import jakarta.persistence.*;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
-import java.util.Objects;
 
 @Entity
 @Table(name = "product")
 @Getter
 @Setter
+@EqualsAndHashCode
 public class ProductModel {
 
     @Id
@@ -36,25 +37,14 @@ public class ProductModel {
     @Column(name = "quantidade", nullable = false)
     private int quantidade;
 
-    @Column(name = "categoria", nullable = false)
-    private String categoria;
-
     @Column(name = "criado_em", nullable = false)
     private LocalDateTime criadoEm;
 
     @Column(name = "atualizado_em")
     private LocalDateTime atualizadoEm;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ProductModel model = (ProductModel) o;
-        return Double.compare(preco, model.preco) == 0 && quantidade == model.quantidade && Objects.equals(id, model.id) && Objects.equals(nome, model.nome) && Objects.equals(codigo, model.codigo) && Objects.equals(descricao, model.descricao) && Objects.equals(categoria, model.categoria) && Objects.equals(criadoEm, model.criadoEm) && Objects.equals(atualizadoEm, model.atualizadoEm);
-    }
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "categoria_id", nullable = false)
+    private CategoriaModel categoria;
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, nome, codigo, descricao, preco, quantidade, categoria, criadoEm, atualizadoEm);
-    }
 }
