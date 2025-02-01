@@ -25,13 +25,13 @@ public class ProductService {
 
     private ProductModel createProductModel(ProductDto productDto) {
         ProductModel productModel = new ProductModel();
-        productModel.setName(productDto.getName());
-        productModel.setSku(productDto.getSku());
-        productModel.setDescription(productDto.getDescription());
-        productModel.setPrice(productDto.getPrice());
-        productModel.setQuantity(productDto.getQuantity());
-        productModel.setCategory(productDto.getCategory());
-        productModel.setCreatedAt(LocalDateTime.now());
+        productModel.setNome(productDto.getName());
+        productModel.setCodigo(productDto.getSku());
+        productModel.setDescricao(productDto.getDescription());
+        productModel.setPreco(productDto.getPrice());
+        productModel.setQuantidade(productDto.getQuantity());
+        productModel.setCategoria(productDto.getCategory());
+        productModel.setCriadoEm(LocalDateTime.now());
         return productModel;
     }
 

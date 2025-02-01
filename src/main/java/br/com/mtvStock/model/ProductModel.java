@@ -17,44 +17,44 @@ public class ProductModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name", nullable = false)
-    private String name;
+    @Column(name = "nome", nullable = false)
+    private String nome;
 
 
     /**
      * Column code product
      */
-    @Column(name = "sku", unique = true, nullable = false)
-    private String sku;
+    @Column(name = "codigo", unique = true, nullable = false)
+    private String codigo;
 
-    @Column(name = "description", nullable = false)
-    private String description;
+    @Column(name = "descricao", nullable = false)
+    private String descricao;
 
-    @Column(name = "price", nullable = false)
-    private double price;
+    @Column(name = "preco", nullable = false)
+    private double preco;
 
-    @Column(name = "quantity", nullable = false)
-    private int quantity;
+    @Column(name = "quantidade", nullable = false)
+    private int quantidade;
 
-    @Column(name = "category", nullable = false)
-    private String category;
+    @Column(name = "categoria", nullable = false)
+    private String categoria;
 
-    @Column(name = "created_at", nullable = false)
-    private LocalDateTime createdAt;
+    @Column(name = "criado_em", nullable = false)
+    private LocalDateTime criadoEm;
 
-    @Column(name = "updated_at")
-    private LocalDateTime updatedAt;
+    @Column(name = "atualizado_em")
+    private LocalDateTime atualizadoEm;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ProductModel model = (ProductModel) o;
-        return Double.compare(price, model.price) == 0 && quantity == model.quantity && Objects.equals(id, model.id) && Objects.equals(name, model.name) && Objects.equals(sku, model.sku) && Objects.equals(description, model.description) && Objects.equals(category, model.category) && Objects.equals(createdAt, model.createdAt) && Objects.equals(updatedAt, model.updatedAt);
+        return Double.compare(preco, model.preco) == 0 && quantidade == model.quantidade && Objects.equals(id, model.id) && Objects.equals(nome, model.nome) && Objects.equals(codigo, model.codigo) && Objects.equals(descricao, model.descricao) && Objects.equals(categoria, model.categoria) && Objects.equals(criadoEm, model.criadoEm) && Objects.equals(atualizadoEm, model.atualizadoEm);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, sku, description, price, quantity, category, createdAt, updatedAt);
+        return Objects.hash(id, nome, codigo, descricao, preco, quantidade, categoria, criadoEm, atualizadoEm);
     }
 }
