@@ -17,6 +17,13 @@ public class ProductService {
 
     public void createProduct(@NonNull ProductDto productDto) {
 
+        ProductModel productModel = createProductModel(productDto);
+
+        save(productModel);
+
+    }
+
+    private ProductModel createProductModel(ProductDto productDto) {
         ProductModel productModel = new ProductModel();
         productModel.setName(productDto.getName());
         productModel.setSku(productDto.getSku());
@@ -25,9 +32,7 @@ public class ProductService {
         productModel.setQuantity(productDto.getQuantity());
         productModel.setCategory(productDto.getCategory());
         productModel.setCreatedAt(LocalDateTime.now());
-
-        save(productModel);
-
+        return productModel;
     }
 
     public void save(ProductModel productModel){
